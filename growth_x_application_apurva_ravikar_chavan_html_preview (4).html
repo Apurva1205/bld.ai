@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Apurva Ravikar Chavan — GrowthX Application</title>
+  <style>
+    :root{
+      --bg:#0b0f19;
+      --card:#121827;
+      --muted:#93a4bf;
+      --text:#e8eefc;
+      --accent:#7c9cff;
+      --chip:#1b2540;
+      --good:#c8f36a;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: radial-gradient(1000px 600px at 10% -10%, #1b2440 0, transparent 60%), var(--bg);
+      color: var(--text);
+      line-height:1.6;
+    }
+    header{
+      padding:48px 20px 16px;
+      max-width:1000px; margin:0 auto;
+    }
+    .pill{
+      display:inline-flex; gap:8px; align-items:center;
+      padding:6px 12px; border-radius:999px; background:var(--chip);
+      color:var(--muted); font-size:14px; letter-spacing:.2px;
+    }
+    h1{
+      margin:12px 0 8px; font-size:34px; letter-spacing:.2px;
+      background: linear-gradient(90deg, var(--text), #bcd1ff);
+      -webkit-background-clip:text; background-clip:text; color:transparent;
+    }
+    .sub{color:var(--muted); margin-top:0}
+    .links{display:flex; gap:12px; flex-wrap:wrap; margin-top:12px}
+    .links a{
+      text-decoration:none; color:var(--accent); background:#0e1630;
+      padding:8px 12px; border:1px solid #243157; border-radius:10px; font-weight:600;
+    }
+    main{max-width:1000px; margin:0 auto; padding:12px 20px 60px}
+    .grid{display:grid; grid-template-columns:1.2fr .8fr; gap:22px}
+    @media (max-width: 900px){ .grid{grid-template-columns:1fr} }
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.08)), var(--card);
+      border:1px solid #223055; border-radius:18px; padding:18px 18px 6px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.25);
+    }
+    h2{font-size:20px; margin:0 0 8px}
+    h3{font-size:16px; margin:18px 0 8px; color:#cdd9ff}
+    .q{color:#c9d4ff; font-weight:600; margin-top:16px}
+    .a{margin:6px 0 0}
+    ul{margin:6px 0 10px 22px}
+    li{margin:4px 0}
+    .chips{display:flex; gap:8px; flex-wrap:wrap; margin:10px 0 2px}
+    .chip{background:var(--chip); color:#c9d4ff; padding:4px 10px; border-radius:999px; font-size:12px; border:1px solid #2c3b68}
+    .kpi{display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-top:10px}
+    .kpi div{background:#0e1630; border:1px solid #243157; border-radius:14px; padding:10px}
+    .kpi b{display:block; font-size:20px; color:var(--good)}
+    footer{max-width:1000px; margin:20px auto 60px; color:var(--muted); text-align:center; font-size:13px}
+    .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; font-size:13px; background:#0e1630; padding:2px 6px; border-radius:6px; border:1px solid #26325a}
+    .tabs{display:flex; gap:8px; flex-wrap:wrap; margin-top:14px}
+  .tabs button{background:#0e1630; border:1px solid #243157; color:#cdd9ff; padding:8px 12px; border-radius:10px; cursor:pointer; font-weight:600}
+  .tabs button.active{outline:2px solid #7c9cff}
+  .tab-panel{display:none}
+  .tab-panel.active{display:block}
+  .case-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:16px}
+  @media (max-width:900px){.case-grid{grid-template-columns:1fr}}
+  .metric{background:#0e1630; border:1px solid #243157; border-radius:12px; padding:10px}
+    /* Colorful theme variables when body has .color */
+  body.color{ --bg:#0a0516; --card:#18122B; --muted:#9cb3ff; --text:#F3F4FF; --accent:#FF7EDB; --chip:#2B1748; --good:#7CF8A9; }
+  body.color{ background: radial-gradient(900px 500px at 10% -10%, #2e1455 0, transparent 60%),
+                         radial-gradient(700px 400px at 110% -20%, #1b6cff33 0, transparent 60%),
+                         linear-gradient(180deg,#0a0516 0,#0b0f19 100%); }
+  .chip.rainbow{ background:linear-gradient(135deg,#5b8cff, #ff7edb 50%, #7cf8a9); border:0; color:#0b0f19; font-weight:700 }
+  .card.border-glow{ border:1px solid transparent; background:linear-gradient(var(--card), var(--card)) padding-box,
+                                          linear-gradient(135deg,#5b8cff,#ff7edb,#7cf8a9) border-box; }
+  #toggleColor{ background:#0e1630; border:1px solid #243157; color:#cdd9ff; padding:8px 12px; border-radius:10px; cursor:pointer; font-weight:600 }
+  </style>
+</head>
+<body class="color">
+  <header>
+    <span class="pill">📈 GrowthX Application</span>
+    <h1>Apurva Ravikar Chavan</h1>
+    <p class="sub">Data Scientist • ML Engineer — end-to-end ML, analytics, experimentation, and production pipelines.</p>
+    <div class="links">
+      <a href="mailto:apurvachavan125@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/apurvachavan125/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/Apurva1205" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </header>
+
+  <main class="grid">
+  <section class="card">
+    <h2 id="answers">Two Approaches — Pick Your Style</h2>
+
+    <div class="tabs">
+      <button class="tabBtn active" data-tab="concise">Concise Q&A</button>
+      <button class="tabBtn" data-tab="metrics">Metrics-First Case Study</button>
+    </div>
+
+    <div id="concise" class="tab-panel active">
+      <p class="q">1) Large, complex dataset — approach & modeling</p>
+      <div class="a">
+        <p><b>Energy Load Forecasting</b> across multi-year telemetry + weather. I designed a <i>columnar, partitioned</i> lake (Parquet on S3) with schema/quality checks, built features for seasonality, weather lags, and recent trends, and trained <span class="mono">LSTM</span> (sequences) + <span class="mono">GBM</span> (tabular). I evaluated via <i>rolling-origin backtests</i> with MAPE/MAE per region and a <i>cost-weighted</i> loss. Ship-ready ops: containerized inference, scheduled retrains, and drift monitoring.</p>
+      </div>
+
+      <p class="q">2) ML technique → business outcome</p>
+      <div class="a">
+        <p><b>Resume↔Job Matcher</b> using two-tower <span class="mono">sentence-transformers</span> embeddings + logistic re-ranker. Tools: <span class="mono">Python, pandas, scikit-learn, PyTorch, FastAPI</span>. I aligned with KPIs (<i>top‑k recall, accept‑rate, time‑to‑shortlist</i>) and A/B‑tested thresholds; dashboards tracked failure modes and inference cost.</p>
+      </div>
+
+      <p class="q">3) Keeping up with LLM eval & prompts</p>
+      <div class="a">
+        <p>Run <i>task-specific eval harnesses</i> with golden sets, regression suites on prompt diffs, and track <span class="mono">quality × cost</span>. I read new eval papers/repos, and apply <i>operational guardrails</i> (reversible actions, red‑teaming) before rollout.</p>
+      </div>
+    </div>
+
+    <div id="metrics" class="tab-panel">
+      <h3 style="margin-top:6px">LLM Search Visibility — Mini Case Study (GrowthX‑style)</h3>
+      <p><b>Goal:</b> define and ship measurement for a client's brand presence in LLM answers, then use experiments to improve it.</p>
+      <div class="case-grid">
+        <div class="metric"><b>Dataset & Taxonomy</b><br/>Seed queries → dedup → label intents (how‑to, compare, transactional). Sample by segment to avoid bias.</div>
+        <div class="metric"><b>Core Metrics</b><br/>Presence@k, Coverage (% queries answered), Share‑of‑Voice, Answer Quality (rubric), Cost/Qualified‑Answer.</div>
+        <div class="metric"><b>Eval Harness</b><br/>Deterministic prompts + rubric graders; regression suite on each prompt/model change; budget caps.
+        </div>
+        <div class="metric"><b>Experiments</b><br/>A/B content clusters, schema tweaks, retrieval snippets; analyze lift vs. cost and latency.</div>
+      </div>
+      <p style="margin-top:8px"><b>Impact loop:</b> weekly dashboards (SoV, quality buckets), PRDs for wins, and guardrails for hallucinations/tool‑use.</p>
+    </div>
+
+      <div id="bldai" class="tab-panel sub active">
+        <p class="q">What interests you about working for this company? (bld.ai)</p>
+        <div class="a">
+          <p><b>Why bld.ai</b>: You ship real, enterprise‑grade AI systems—exactly where my end‑to‑end skill set (data pipelines → modeling → deployment) shines. The role’s focus on <i>experimentation, performance optimization, and production integration</i> matches my track record of turning prototypes into reliable services.</p>
+          <ul>
+            <li><b>Impact surface:</b> client‑facing deployments where latency, accuracy, and cost constraints matter.</li>
+            <li><b>How I work:</b> async‑friendly, low‑bureaucracy teams; crisp docs; measurable milestones.</li>
+            <li><b>Fit:</b> Python/ML pipelines, cloud (AWS/GCP), evaluation harnesses, and shipping features behind SLAs.</li>
+          </ul>
+          <h4>Pitch — "Rapid AI Delivery Kit" for bld.ai clients (30/60/90)</h4>
+          <ul>
+            <li><b>30 days:</b> Stand up a <i>standard eval harness</i> (task rubrics, golden sets, regression suites) + <i>observability</i> (latency, cost/1k tokens, failure buckets). Template repos for FastAPI/Streamlit demos.</li>
+            <li><b>60 days:</b> Ship a <i>reusable deployment blueprint</i> (batch + real‑time) with feature store hooks, canary routes, and autoscaling. Add cost/quality <i>guardrails</i> and error taxonomies.</li>
+            <li><b>90 days:</b> Launch a <i>client dashboard</i> showing experiment wins, ROI deltas, and production health; publish playbooks so new engagements start fast.</li>
+          </ul>
+          <p><b>Why me:</b> I’ve built eval+AB pipelines, drift monitoring, and predictable serving in prior projects—happy to demo.</p>
+        </div>
+      </div>
+
+      <div id="growthx" class="tab-panel sub">
+        <p class="q">What interests you about GrowthX?</p>
+        <div class="a">
+          <p>Love the "service‑as‑software" thesis and the problem of measuring & lifting brand presence in LLM answers. My background in taxonomies, sampling, and eval harnesses fits the role directly. See the Metrics tab for the mini case study and the sidebar for my 30/60/90 plan.</p>
+        </div>
+      </div>
+
+      <div id="onephi" class="tab-panel sub">
+        <p class="q">What interests you about 1Phi?</p>
+        <div class="a">
+          <p>Patient‑impact focus with claims‑driven modeling is my jam: cohorts, propensity, survival analysis, and deployable services that support real decisions. I outlined an R&D‑friendly, production‑ready plan in the earlier canvas.</p>
+        </div>
+      </div>
+    </div>
+        <h3>Why bld.ai</h3>
+        <p>You build enterprise AI that actually lands in prod. That’s my zone—owning the loop from data prep and eval harnesses to deployable services with SLAs. I like low‑bureaucracy, async‑friendly teams with crisp docs and measurable milestones.</p>
+        <h3>Pitch: "Rapid AI Delivery Kit" (bright & fast)</h3>
+        <ul>
+          <li><b>30 days:</b> Spin up a <i>standard eval harness</i> (golden sets, regression suites) + <i>observability</i> (latency, cost/1k tokens, failure buckets). Template repo for demo apps.</li>
+          <li><b>60 days:</b> Reusable <i>deployment blueprint</i> (batch + realtime) with feature store hooks, canaries, autoscaling; cost/quality guardrails.</li>
+          <li><b>90 days:</b> Client dashboard showing ROI deltas and production health; playbook so new engagements start in days, not weeks.</li>
+        </ul>
+        <h3>Mini Proof Points</h3>
+        <ul>
+          <li>Built eval + A/B + drift monitoring for prior ML features; predictable serving and clear rollback.</li>
+          <li>Time‑series forecasting at scale (LSTM/GBM) with rolling backtests and cost‑weighted metrics.</li>
+          <li>Retrieval/embedding matcher with KPI‑aligned thresholds (accept‑rate, time‑to‑shortlist).</li>
+        </ul>
+      </section>
+    </div>
+  </section>
+
+  <aside class="card">
+    <h2>Profile & Role Fit</h2>
+    <div style="display:flex; gap:12px; align-items:center; margin:8px 0 6px">
+      <div style="width:44px; height:44px; border-radius:50%; background:#0e1630; border:1px solid #243157; display:flex; align-items:center; justify-content:center; font-weight:800;">AC</div>
+      <div>
+        <div style="font-weight:700;">Apurva Ravikar Chavan</div>
+        <div style="color:#93a4bf; font-size:13px;">Data Scientist / ML Engineer</div>
+        <div style="font-size:13px; margin-top:4px"><a href="mailto:apurvachavan125@gmail.com">apurvachavan125@gmail.com</a> · <a href="https://www.linkedin.com/in/apurvachavan125/" target="_blank">LinkedIn</a> · <a href="https://github.com/Apurva1205" target="_blank">GitHub</a></div>
+      </div>
+    </div>
+    <div class="chips">
+      <span class="chip">End‑to‑end ML</span>
+      <span class="chip">Experimentation</span>
+      <span class="chip">Taxonomies & Sampling</span>
+      <span class="chip">LLM Evals</span>
+      <span class="chip">SQL & Python</span>
+      <span class="chip">Airflow/dbt</span>
+      <span class="chip">AWS/GCP</span>
+    </div>
+
+    <h3>Signals</h3>
+    <ul>
+      <li>Productionized models with CI/CD and cost controls.</li>
+      <li>Clear KPI definitions, backtests, and dashboards.</li>
+      <li>Comfortable in ambiguous, fast product cycles.</li>
+    </ul>
+
+    <h2 style="margin-top:14px">Experience</h2>
+    <div class="metric" style="margin-top:8px">
+      <div style="display:flex; justify-content:space-between; align-items:baseline">
+        <div><b>Data Scientist Intern</b> — Mental Model Algorithms, Ideatrix Cogn AI Lab Corp</div>
+        <div style="color:#93a4bf; font-size:12px">Jul 2025 – Present</div>
+      </div>
+      <ul style="margin-top:6px">
+        <li>Design and implement reasoning algorithms for multi‑agent dialogue games using LLMs and cognitive models.</li>
+        <li>Apply cognitive science, neuroscience, and game theory to model deception, inference, trust, and alignment.</li>
+        <li>Build tools to analyze agent behavior and belief dynamics in simulated social‑deduction games (Werewolf Arena).</li>
+        <li>Collaborate with researchers to enhance the Werewolf Mental Model Arena platform.</li>
+      </ul>
+    </div>
+
+    <h2 style="margin-top:14px">Idea Pitch — Grow LLM Search Visibility</h2>
+    <p style="margin-top:6px">A fast, measurable plan to improve a client's brand presence inside AI answers.</p>
+    <ul>
+      <li><b>Audit & Taxonomy (Week 1):</b> Crawl seed queries; define intents (how‑to, compare, transactional); label brand/entity coverage; set sampling rules to prevent bias.</li>
+      <li><b>Eval Harness (Week 2):</b> Deterministic prompts per model; rubric graders (accuracy, attribution, actionability); regression suite on each prompt/model change; budget caps.</li>
+      <li><b>Baseline Metrics (Week 3):</b> Presence@k, Coverage, Share‑of‑Voice, Answer‑Quality, Cost/Qualified‑Answer, Latency.</li>
+      <li><b>Experiments (Weeks 4–6):</b> Content clustering, schema/FAQ rewrites, retrieval snippet tuning; A/B design with lift vs. cost tracking.</li>
+      <li><b>Guardrails:</b> hallucination checks, source‑attribution rate, and reversible tool actions for agentic workflows.</li>
+    </ul>
+
+    <h3>30 / 60 / 90</h3>
+    <ul>
+      <li><b>30 days:</b> Ship baseline dashboard + weekly SoV/quality reports for 1–2 pilot brands; document taxonomy and sampling.</li>
+      <li><b>60 days:</b> Roll out eval harness to additional clients; integrate with content ops; hit ≥10% lift in Presence@k for pilots.</li>
+      <li><b>90 days:</b> Add predictive scoring to prioritize content work; automate experiment suggestions; publish playbook.</li>
+    </ul>
+  </aside>
+</main>
+
+
+  <footer>
+    Built by Apurva • Last updated automatically
+  </footer>
+<script>
+  (function(){
+    const tabs = document.querySelectorAll('.tabBtn');
+    const panels = document.querySelectorAll('.tab-panel');
+    tabs.forEach(btn=>btn.addEventListener('click',()=>{
+      tabs.forEach(b=>b.classList.remove('active'));
+      panels.forEach(p=>p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.tab)?.classList.add('active');
+    }));
+  })();
+</script>
+</body>
+</html>
